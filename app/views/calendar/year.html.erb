@@ -1,0 +1,19 @@
+<div class="year-sheet" data-controller="print" data-print-title-value="<%= @year %> Lunar Calendar">
+  <header class="year-sheet__header">
+    <h1 class="year-sheet__title"><%= @year %></h1>
+
+    <nav class="year-sheet__nav">
+      <%= link_to "&#8249; #{@year - 1}".html_safe, calendar_year_path(year: @year - 1), class: "year-sheet__nav-link", data: { turbo_frame: "_top" } %>
+      <%= link_to "Home", root_path, class: "year-sheet__nav-link" %>
+      <%= link_to "#{@year + 1} &#8250;".html_safe, calendar_year_path(year: @year + 1), class: "year-sheet__nav-link", data: { turbo_frame: "_top" } %>
+    </nav>
+
+    <button type="button" class="year-sheet__print" data-action="print#print">Print</button>
+  </header>
+
+  <main class="year-sheet__months">
+    <% @months.each do |month_days| %>
+      <%= render "calendar/year_month", month_days: month_days, phases: @phases %>
+    <% end %>
+  </main>
+</div>

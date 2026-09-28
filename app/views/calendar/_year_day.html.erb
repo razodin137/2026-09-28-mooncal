@@ -1,0 +1,9 @@
+<div class="year-day<%= " year-day--today" if day == Date.current %><%= " year-day--weekend" if day.wday.zero? || day.wday == 6 %>">
+  <span class="year-day__number"><%= day.day %></span>
+
+  <% if phase %>
+    <span class="year-day__moon">
+      <%= render "calendar/moon", phase: phase %>
+    </span>
+  <% end %>
+</div>

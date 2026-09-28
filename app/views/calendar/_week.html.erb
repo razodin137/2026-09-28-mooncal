@@ -1,0 +1,5 @@
+<div class="calendar-week" data-start-date="<%= week.first.iso8601 %>" data-end-date="<%= week.last.iso8601 %>">
+  <% week.each do |day| %>
+    <%= render "calendar/day", day: day, phase: phases[day] %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<div class="calendar" data-controller="infinite-calendar">
+  <header class="calendar__header">
+    <span>Sun</span>
+    <span>Mon</span>
+    <span>Tue</span>
+    <span>Wed</span>
+    <span>Thu</span>
+    <span>Fri</span>
+    <span>Sat</span>
+    <nav class="calendar__year-nav">
+      <%= link_to "Year view", calendar_year_path, class: "calendar__year-link" %>
+    </nav>
+  </header>
+
+  <div class="calendar__weeks" data-infinite-calendar-target="weeks">
+    <%= render "calendar/weeks", weeks: @weeks, phases: @phases %>
+  </div>
+
+  <div class="calendar__sentinel calendar__sentinel--bottom" data-infinite-calendar-target="bottomSentinel"></div>
+</div>

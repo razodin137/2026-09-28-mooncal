@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Porcelain paper — design tokens                                     */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  /* Paper */
+  --paper: oklch(96.5% 0.011 85);
+  --paper-sun: oklch(98.5% 0.012 90);
+  --paper-shade: oklch(93% 0.016 82);
+
+  /* Ink */
+  --ink: oklch(32% 0.034 50);
+  --ink-soft: oklch(45% 0.03 55);
+  --ink-faint: oklch(62% 0.026 58);
+  --line: oklch(85% 0.02 75 / 0.7);
+  --rule: oklch(74% 0.03 68 / 0.9);
+
+  /* Celadon porcelain */
+  --porcelain: oklch(94% 0.035 200);
+  --glaze-hi: oklch(98.5% 0.018 195);
+  --glaze-lo: oklch(84% 0.052 210);
+
+  /* Kintsugi gold */
+  --kintsugi: oklch(82% 0.115 92);
+
+  /* Fibrous paper grain — infinitely tileable fractal noise */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E");
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* The sheet                                                           */
+/* ------------------------------------------------------------------ */
+
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  background:
+    radial-gradient(120% 70% at 50% -10%, var(--paper-sun), transparent 55%),
+    radial-gradient(130% 90% at 50% 115%, var(--paper-shade), transparent 60%),
+    var(--paper);
+  background-attachment: fixed;
+}
+
+/* Grain rests over everything like fibers pressed into the sheet —
+   it never moves and never intercepts input. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background-image: var(--grain);
+  background-size: 240px 240px;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background-color: var(--porcelain);
+  color: var(--ink);
+}

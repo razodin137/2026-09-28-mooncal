@@ -1,0 +1,13 @@
+<div class="calendar-day <%= "calendar-day--today" if day == Date.current %>">
+  <% if day.day == 1 %>
+    <span class="calendar-month-marker"><%= day.strftime("%B") %></span>
+  <% end %>
+
+  <span class="calendar-day__number"><%= day.day %></span>
+
+  <% if phase %>
+    <span class="calendar-day__moon">
+      <%= render "calendar/moon", phase: phase %>
+    </span>
+  <% end %>
+</div>

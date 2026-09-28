@@ -1,0 +1,2 @@
+# 37signals house style
+inherit_gem: { rubocop-37signals: rubocop.yml }

@@ -1,0 +1,12 @@
+<% first = month_days.first %>
+<section class="year-month year-month--len-<%= month_days.length %>" aria-label="<%= first.strftime("%B %Y") %>">
+  <h2 class="year-month__name"><%= first.strftime("%B") %></h2>
+
+  <ol class="year-month__days">
+    <% month_days.each do |day| %>
+      <li>
+        <%= render "calendar/year_day", day: day, phase: phases[day] %>
+      </li>
+    <% end %>
+  </ol>
+</section>
