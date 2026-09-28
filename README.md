@@ -6,6 +6,8 @@ on an infinite-scrolling weekly calendar and a printable year-at-a-glance sheet.
 Phases are computed with a lightweight mean-synodic-month algorithm
 (`app/models/moon_phase.rb`) — no external ephemeris data required.
 
+![Week view](docs/week-view.png)
+
 ## Requirements
 
 * Ruby 4.0.7 (see `.ruby-version`)
@@ -28,6 +30,8 @@ Then visit http://localhost:3000.
   Stimulus infinite-calendar controller (`/calendar/weeks?date=...&direction=newer`).
 * **Year view** — all twelve months of a year with moon phases, ready to
   print (`/calendar/year?year=YYYY`). Years 1900–3000 are supported.
+
+![Year view](docs/year-view.png)
 
 ## Routes
 
